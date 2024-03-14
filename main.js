@@ -28,7 +28,7 @@ const mode_change = function () {
   root.style.setProperty("--fontcolor2", fontcolor1);
   root.style.setProperty("--overlaycolor1", overlaycolor2);
   root.style.setProperty("--overlaycolor2", overlaycolor1);
-
+  localStorage.setItem("mode", JSON.stringify(mode));
   featured_loader(); // function to change the images in the featured section
 };
 
@@ -219,25 +219,6 @@ let hero_items = [
   "images/jordan_1_banner.png",
 ];
 
-let i = 0;
-let hero = document.querySelector(".hero");
-let hero_img = hero.querySelector("img");
-setInterval(() => {
-  // function to change the hero image every 3 seconds
-  if (mode === 0) {
-    hero_items[0] = "images/hero_dark.png";
-  } else {
-    hero_items[0] = "images/hero_light.png";
-  }
-  hero_img.style.setProperty("opacity", "0"); // change the hero image with a transition
-  setTimeout(() => {
-    hero_img.style.setProperty("opacity", "1");
-    hero_img.src = hero_items[i];
-    i++;
-    if (i === hero_items.length) i = 0;
-  }, 300); // change the hero image with a transition
-}, 3000);
-
 const featured_loader = () => {
   // function to change the images in the featured section
   let merchandise = document.querySelector(".featured .merch img");
@@ -272,6 +253,16 @@ const product_loader = (products_array, html_list) => {
               </div>
               <div class="wishlist_button_container">
               <svg
+                class="add_to_cart"
+                id=${product.id}
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11 11H7V13H11V17H13V13H17V11H13V7H11V11Z"
+                ></path>
+              </svg>
+              <svg
                 class="add_to_wishlist"
                 id=${product.id}
                 xmlns="http://www.w3.org/2000/svg"
@@ -297,6 +288,13 @@ product_loader(products_list_basketball, basketball_list); // loading the produc
 
 let back_to_top = document.querySelector(".back_to_top"); // back to top button
 back_to_top.addEventListener("click", (e) => {
+  // back to top button event listener
+  e.stopPropagation();
+  window.scrollTo(0, 0); // scroll to the top of the page
+});
+
+let logo = document.querySelector(".logo_nav");
+logo.addEventListener("click", (e) => {
   // back to top button event listener
   e.stopPropagation();
   window.scrollTo(0, 0); // scroll to the top of the page
@@ -404,7 +402,7 @@ let reload_wishlist = () => {
   wishlist_items.innerHTML = ""; // clear the wishlist items
   if (wishlist_items_array.length === 0) {
     // if the wishlist is empty
-    wishlist_items.innerHTML = `<p class="empty_wishlist">Your wishlist is empty</p>`;
+    wishlist_items.innerHTML = `<p class="empty_wishlist empty">Your wishlist is empty</p>`;
   }
   let items_value = wishlist_items_array.length > 1 ? " items" : " item";
   wishlist_overlay.querySelector(".wishlist_count").innerHTML =
@@ -436,7 +434,7 @@ let reload_wishlist = () => {
         <p>${product.name}</p>
         <p>$${product.price}</p>
         <div class="buttons">
-          <div class="add_to_cart">
+          <div class="add_to_cart_from_wishlist" id=${product.id}>
             <p>Add to cart</p>
           </div>
           <div class="remove_from_wishlist" id=${product.id}>
@@ -465,6 +463,29 @@ let reload_wishlist = () => {
       localStorage.setItem("wishlist", JSON.stringify(wishlist_items_array)); // save the wishlist in the local storage
       set_wishlist_buttons(wishlist_items_array); // set the wishlist buttons
       reload_wishlist(); // reload the wishlist items
+    });
+  }
+
+  let add_to_cart_buttons = document.querySelectorAll(
+    ".add_to_cart_from_wishlist"
+  ); // add to cart buttons array
+  for (let i = 0; i < add_to_cart_buttons.length; i++) {
+    let add_to_cart_button = add_to_cart_buttons[i];
+    add_to_cart_button.addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      for (let j = 0; j < wishlist_items_array.length; j++) {
+        if (wishlist_items_array[j] === add_to_cart_button.id) {
+          wishlist_items_array.splice(j, 1); // remove the product from the wishlist
+          break;
+        }
+      }
+      localStorage.setItem("wishlist", JSON.stringify(wishlist_items_array)); // save the wishlist in the local storage
+      set_wishlist_buttons(wishlist_items_array); // set the wishlist buttons
+      reload_wishlist(); // reload the wishlist items
+
+      cart_items_array.push(add_to_cart_button.id); // add the product to the cart
+      localStorage.setItem("cart", JSON.stringify(cart_items_array)); // save the cart in the local storage
+      reload_cart(); // reload the cart items
     });
   }
 };
@@ -526,6 +547,145 @@ cart_close.addEventListener("click", function (event) {
   // cart close button event listener
   event.stopPropagation();
   overlay_close_function(cart_overlay);
+});
+
+let cart_items_array = [];
+if (localStorage.getItem("cart") !== null) {
+  cart_items_array = JSON.parse(localStorage.getItem("cart"));
+}
+
+const reload_cart = () => {
+  let cart_items = document.querySelector(".cart_items");
+  let cart_footer = document.querySelector(".cart_footer");
+  cart_items.innerHTML = "";
+  if (cart_items_array.length === 0) {
+    // if the cart is empty
+    cart_items.innerHTML = `<p class="empty_cart empty">Your cart is empty</p>`;
+    cart_footer.style.setProperty("display", "none");
+  } else {
+    cart_footer.style.setProperty("display", "flex");
+  }
+  let items_value = cart_items_array.length > 1 ? " items" : " item";
+  cart_overlay.querySelector(".cart_count").innerHTML =
+    cart_items_array.length + items_value; // set the wishlist count
+  let cost = document.querySelector(".cost");
+  cost.innerHTML = "";
+  let total_price = 0;
+  for (let i = 0; i < cart_items_array.length; i++) {
+    let product = products_list_heat.find(
+      (product) => product.id == cart_items_array[i]
+    );
+    if (product === undefined) {
+      product = products_list_merchandise.find(
+        (product) => product.id == cart_items_array[i]
+      );
+    }
+    if (product === undefined) {
+      product = products_list_basketball.find(
+        (product) => product.id == cart_items_array[i]
+      );
+    }
+    total_price += product.price;
+    cart_items.innerHTML += `<div class="cart_item item">
+    <div class="prod_img">
+      <img src="${product.src}" alt="${product.name}" />
+    </div>
+    <div class="details">
+      <p>${product.name}</p>
+      <p>$${product.price}</p>
+      <div class="buttons">
+        <div class="add_to_wishlist_from_cart" id=${product.id}>
+          <p>Move to wishlist</p>
+        </div>
+        <div class="remove_from_cart" id=${product.id}>
+          <p>Remove from cart</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`;
+  }
+  cost.innerHTML = `$${total_price}`;
+  let remove_from_cart_buttons = document.querySelectorAll(
+    // remove from wishlist buttons array
+    ".remove_from_cart"
+  );
+  for (let i = 0; i < remove_from_cart_buttons.length; i++) {
+    // remove from wishlist button event listener
+    let remove_from_cart_button = remove_from_cart_buttons[i];
+    remove_from_cart_button.addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      for (let j = 0; j < cart_items_array.length; j++) {
+        if (cart_items_array[j] === remove_from_cart_button.id) {
+          cart_items_array.splice(j, 1); // remove the product from the wishlist
+          break;
+        }
+      }
+      reload_cart(); // reload the wishlist items
+      localStorage.setItem("cart", JSON.stringify(cart_items_array)); // save the cart in the local storage
+    });
+  }
+
+  let add_to_wishlist_buttons = document.querySelectorAll(
+    ".add_to_wishlist_from_cart"
+  ); // add to wishlist buttons array
+  for (let i = 0; i < add_to_wishlist_buttons.length; i++) {
+    let add_to_wishlist_button = add_to_wishlist_buttons[i];
+    add_to_wishlist_button.addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      for (let j = 0; j < cart_items_array.length; j++) {
+        if (cart_items_array[j] === add_to_wishlist_button.id) {
+          cart_items_array.splice(j, 1);
+          break;
+        }
+      }
+      reload_cart();
+      localStorage.setItem("cart", JSON.stringify(cart_items_array)); // save the cart in the local storage
+      wishlist_items_array.push(add_to_wishlist_button.id);
+      localStorage.setItem("wishlist", JSON.stringify(wishlist_items_array));
+      set_wishlist_buttons(wishlist_items_array); // set the wishlist buttons
+      reload_wishlist();
+    });
+  }
+};
+
+reload_cart();
+
+let add_to_cart_buttons = document.querySelectorAll(".add_to_cart");
+for (let i = 0; i < add_to_cart_buttons.length; i++) {
+  let add_to_cart_button = add_to_cart_buttons[i];
+  add_to_cart_button.addEventListener("click", () => {
+    cart_items_array.push(add_to_cart_button.id);
+    localStorage.setItem("cart", JSON.stringify(cart_items_array));
+    reload_cart();
+  });
+}
+
+let checkout_button = document.querySelector(".checkout");
+checkout_button.addEventListener("click", () => {
+  cart_items_array = [];
+  localStorage.setItem("cart", JSON.stringify(cart_items_array));
+  let order_successful = document.querySelector(".order_successful");
+  order_successful.style.setProperty("display", "block");
+  setTimeout(() => {
+    order_successful.style.setProperty("opacity", "1");
+    order_successful.style.setProperty(
+      "transform",
+      "translate(-50%,-50%) scale(1)"
+    );
+  });
+  setTimeout(() => {
+    order_successful.style.setProperty("opacity", "0");
+    order_successful.style.setProperty(
+      "transform",
+      "translate(-50%,-50%) scale(0)"
+    );
+    setTimeout(() => {
+      order_successful.style.setProperty("display", "hidden");
+    }, 1000);
+  }, 1000);
+
+  reload_cart();
 });
 
 document.addEventListener("click", function (event) {

@@ -35,7 +35,7 @@ body {
   height: max-content;
   background-color: rgba(var(--overlaycolor1));
   color: rgba(var(--fontcolor1));
-  padding: 1.5em 4em;
+  padding: 1em 4em;
   border-radius: 20px;
   z-index: 102;
   position: fixed;
@@ -123,6 +123,9 @@ body {
   gap: 10px;
   padding: 10px;
 }
+.cart .items_container {
+  max-height: 420px;
+}
 .overlay .item {
   width: 90%;
   height: 100px;
@@ -137,14 +140,14 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-.wishlist .prod_img {
+.overlay .prod_img {
   height: 90%;
   aspect-ratio: 3/2;
   background-color: rgba(var(--overlaycolor1));
   border-radius: 5px;
   position: relative;
 }
-.wishlist .wishlist_item .details {
+.overlay .item .details {
   width: 65%;
   height: 90%;
   display: flex;
@@ -152,31 +155,31 @@ body {
   justify-content: space-between;
   margin: 0px auto;
 }
-.wishlist .wishlist_item .prod_img img {
+.overlay .item .prod_img img {
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
   position: relative;
   top: 0;
   left: 0;
   border-radius: 5px;
 }
-.wishlist .details > p:nth-of-type(1) {
+.overlay .details > p:nth-of-type(1) {
   font-size: 1em;
   font-weight: 600;
 }
-.wishlist .details > div:nth-of-type(1) {
+.overlay .details > div:nth-of-type(1) {
   display: flex;
   font-size: 0.8em;
   /* gap: 5em; */
 }
-.wishlist .buttons {
+.overlay .buttons {
   width: 100%;
   margin-top: 5px;
   display: flex;
   justify-content: space-around;
 }
-.wishlist .buttons > div {
+.overlay .buttons > div {
   font-size: 0.9em;
   display: flex;
   flex-wrap: nowrap;
@@ -188,16 +191,16 @@ body {
   text-align: center;
   transition: all 0.3s ease-in-out;
 }
-.wishlist .wishlist_items .wishlist_item .details .buttons > div:hover {
+.overlay .items_container .item .details .buttons > div:hover {
   background-color: rgba(var(--fontcolor1));
   color: rgba(var(--fontcolor2));
   cursor: pointer;
 }
-.wishlist .wishlist_items .wishlist_item .details .buttons > div:active {
+.overlay .items_container .item .details .buttons > div:active {
   background-color: rgba(var(--fontcolor2));
   color: rgba(var(--fontcolor1));
 }
-.wishlist .empty_wishlist {
+.overlay .empty {
   width: 100%;
   height: 100%;
   display: flex;
@@ -206,6 +209,40 @@ body {
   font-size: 1.5em;
   font-weight: 600;
   color: rgba(var(--fontcolor1), 0.3);
+}
+
+.cart .cart_footer {
+  width: 85%;
+  height: 50px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart .checkout {
+  font-size: 0.9em;
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: rgba(var(--accent2), 0.7);
+  color: rgba(var(--fontcolor2));
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 4px 20px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+.cart .checkout:hover {
+  background-color: rgba(var(--accent1), 0.7);
+  color: rgba(var(--fontcolor1));
+  cursor: pointer;
+}
+.cart .checkout:active {
+  background-color: rgba(var(--fontcolor1));
+  color: rgba(var(--fontcolor2));
+}
+.cart .cost {
+  color: rgba(var(--fontcolor1));
+  font-weight: 600;
 }
 .nav {
   position: sticky;
@@ -228,6 +265,15 @@ body {
   font-size: 1em;
   /* width: max-content; */
   text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav .logo_nav:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.nav .logo_nav:active {
+  transform: scale(0.9);
 }
 
 .nav .icons {
@@ -243,10 +289,13 @@ body {
   fill: rgba(var(--fontcolor1));
   width: 20px;
 }
-.nav div:nth-of-type(2):hover {
+.nav > div:nth-of-type(2):hover {
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   transform: scale(1.1);
+}
+.nav > div:nth-of-type(2):active {
+  transform: scale(0.9);
 }
 .nav .icons svg:hover {
   transform: scale(1.1);
@@ -289,6 +338,38 @@ body {
   background-color: rgba(var(--accent1));
   position: relative;
   transition: all 0.3s ease-in-out;
+  animation: slide 20s ease-in-out infinite;
+  background-size: cover;
+}
+
+@keyframes slide {
+  0% {
+    background-image: url("images/hero_light.png");
+  }
+  20% {
+    background-image: url("images/hero_light.png");
+  }
+  25% {
+    background-image: url("images/merchandise_banner.png");
+  }
+  45% {
+    background-image: url("images/merchandise_banner.png");
+  }
+  50% {
+    background-image: url("images/jordan_1_banner.png");
+  }
+  70% {
+    background-image: url("images/jordan_1_banner.png");
+  }
+  75% {
+    background-image: url("images/adidas_campus_banner.png");
+  }
+  95% {
+    background-image: url("images/adidas_campus_banner.png");
+  }
+  100% {
+    background-image: url("images/hero_light.png");
+  }
 }
 
 .hero img {
@@ -465,6 +546,7 @@ body {
 }
 .card .prod_details .wishlist_button_container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -570,6 +652,29 @@ body {
   padding: 2em;
 }
 
+.order_successful {
+  display: none;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  transform: scale(0);
+  font-size: 16px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(0, 0, 0);
+  color: rgb(0, 255, 0);
+  font-weight: 600;
+  padding: 10px 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgb(88, 88, 88);
+  overflow: hidden;
+  z-index: 1000;
+}
+.order_successful p {
+  filter: drop-shadow(0px 0px 1px rgb(0, 255, 0));
+}
+
 @media (max-width: 1000px) {
   .prod_list {
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -631,6 +736,9 @@ body {
 }
 
 @media (max-width: 600px) {
+  .order_successful {
+    font-size: 14px;
+  }
   .overlay {
     width: 70%;
     font-size: 12px;
@@ -689,6 +797,10 @@ body {
   }
 }
 @media (max-width: 400px) {
+  .order_successful {
+    font-size: 10px;
+    padding: 5px 15px;
+  }
   .wishlist {
     width: 70%;
     font-size: 10px;
