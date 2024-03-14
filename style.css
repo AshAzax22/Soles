@@ -547,7 +547,7 @@ body {
 .card .prod_details .wishlist_button_container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   cursor: pointer;
 }
