@@ -224,7 +224,7 @@ const featured_loader = () => {
   let merchandise = document.querySelector(".featured .merch img");
   let sale = document.querySelector(".featured .sale img");
   let latest = document.querySelector(".featured .latest img");
-  if (mode === 0) {
+  if (mode === 1) {
     merchandise.src = "images/merch_dark.jpg";
     sale.src = "images/sale_dark.jpeg";
     latest.src = "images/latest_dark.jpeg";
