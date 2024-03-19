@@ -688,12 +688,43 @@ checkout_button.addEventListener("click", () => {
   reload_cart();
 });
 
+let login_but = document.querySelector(".login_button");
+let login_overlay = document.querySelector(".login");
+login_but.addEventListener("click", (e) => {
+  e.stopPropagation();
+  overlay_open_funtion(login_overlay);
+  dropdown_close_function();
+});
+
+let login_submit = document.querySelector(".login_submit");
+login_submit.addEventListener("click", () => {
+  let username = document.querySelector("#username").value;
+  let password = document.querySelector("#password").value;
+
+  if (username === "" || password === "") {
+    alert("Please fill in the fields");
+  } else {
+    login_overlay.style.setProperty("background-color", "rgb(85, 255, 85)");
+    login_submit.style.setProperty("opacity", "0");
+    setTimeout(() => {
+      document.querySelector("#username").value = "";
+      document.querySelector("#password").value = "";
+      login_submit.style.setProperty("opacity", "1");
+      login_overlay.style.setProperty(
+        "background-color",
+        "rgba(var(--overlaycolor1))"
+      );
+      overlay_close_function(login_overlay);
+    }, 1000);
+  }
+});
+
 document.addEventListener("click", function (event) {
   // event listener to close the dropdown menu and  overlays when clicking outside them
   let isClickInsideMenu = menu.contains(event.target); // check if the click is inside the menu
   let isClickInsideWishlist = wishlist_overlay.contains(event.target); // check if the click is inside the wishlist overlay
   let isClickInsideCart = cart_overlay.contains(event.target); // check if the click is inside the cart overlay
-
+  let isClickInsideLoginPage = login_overlay.contains(event.target); // check if the click is inside the login overlay
   if (!isClickInsideMenu && menu.style.opacity === "1") {
     // close the dropdown menu if the click is outside it
     dropdown_close_function();
@@ -707,5 +738,9 @@ document.addEventListener("click", function (event) {
   if (!isClickInsideCart && cart_overlay.style.opacity === "1") {
     // close the cart overlay if the click is outside it
     overlay_close_function(cart_overlay);
+  }
+
+  if (!isClickInsideLoginPage && login_overlay.style.opacity === "1") {
+    overlay_close_function(login_overlay);
   }
 });
