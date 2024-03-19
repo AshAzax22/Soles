@@ -688,11 +688,17 @@ checkout_button.addEventListener("click", () => {
   reload_cart();
 });
 
+let login_flag = 0;
 let login_but = document.querySelector(".login_button");
 let login_overlay = document.querySelector(".login");
 login_but.addEventListener("click", (e) => {
-  e.stopPropagation();
-  overlay_open_funtion(login_overlay);
+  if (login_flag) {
+    login_flag = 0;
+    login_but.innerHTML = "LogIn";
+  } else {
+    e.stopPropagation();
+    overlay_open_funtion(login_overlay);
+  }
   dropdown_close_function();
 });
 
@@ -704,8 +710,10 @@ login_submit.addEventListener("click", () => {
   if (username === "" || password === "") {
     alert("Please fill in the fields");
   } else {
+    login_flag = 1;
     login_overlay.style.setProperty("background-color", "rgb(85, 255, 85)");
     login_submit.style.setProperty("opacity", "0");
+    login_but.innerHTML = "LogOut";
     setTimeout(() => {
       document.querySelector("#username").value = "";
       document.querySelector("#password").value = "";

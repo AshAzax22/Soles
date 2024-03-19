@@ -274,7 +274,7 @@ body {
   background-color: rgba(var(--accent2));
   color: rgba(var(--fontcolor2));
   font-weight: 700;
-  font-size: 20px;
+  font-size: 1.5em;
   padding: 6px 20px;
   border-radius: 20px;
   cursor: pointer;
@@ -874,6 +874,19 @@ body {
   }
   .footer {
     font-size: 7px;
+  }
+
+  .login {
+    height: 50%;
+    width: 60%;
+  }
+
+  .login h1 {
+    font-size: 1em;
+  }
+
+  .login .login_submit {
+    font-size: 0.8em;
   }
 }
 @media (max-width: 400px) {
