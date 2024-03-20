@@ -37,6 +37,9 @@ products_list_heat = [
   {
     name: "jordan 1",
     src: "images/jordan_1.jpeg",
+    src2: "images/jordan_12.jpeg",
+    src3: "images/jordan_13.jpeg",
+    src4: "images/jordan_14.jpeg",
     id: 1,
     price: 175,
     sizes: [7, 8, 9, 10],
@@ -45,6 +48,9 @@ products_list_heat = [
   {
     name: "yeezy spl 350",
     src: "images/yeezy_spl_350.webp",
+    src2: "images/yeezy_spl_3502.webp",
+    src3: "images/yeezy_spl_3503.webp",
+    src4: "images/yeezy_spl_3504.webp",
     id: 2,
     price: 250,
     sizes: [7, 8, 9, 10],
@@ -53,6 +59,9 @@ products_list_heat = [
   {
     name: "new balance 550",
     src: "images/new_balance_550.webp",
+    src2: "images/new_balance_5502.webp",
+    src3: "images/new_balance_5503.webp",
+    src4: "images/new_balance_5504.webp",
     id: 3,
     price: 120,
     sizes: [7, 8, 9, 10],
@@ -61,6 +70,9 @@ products_list_heat = [
   {
     name: "nike dunk",
     src: "images/nike_dunk.png",
+    src2: "images/nike_dunk2.png",
+    src3: "images/nike_dunk3.png",
+    src4: "images/nike_dunk4.png",
     id: 4,
     price: 90,
     sizes: [7, 8, 9, 10],
@@ -69,6 +81,9 @@ products_list_heat = [
   {
     name: "adidas campus",
     src: "images/adidas_campus.png",
+    src2: "images/adidas_campus2.png",
+    src3: "images/adidas_campus3.png",
+    src4: "images/adidas_campus4.png",
     id: 13,
     price: 100,
     sizes: [7, 8, 9, 10],
@@ -77,6 +92,9 @@ products_list_heat = [
   {
     name: "converse chuck taylor",
     src: "images/converse_chuck_taylor.webp",
+    src2: "images/converse_chuck_taylor2.webp",
+    src3: "images/converse_chuck_taylor3.webp",
+    src4: "images/converse_chuck_taylor4.webp",
     id: 14,
     price: 80,
     sizes: [7, 8, 9, 10],
@@ -85,6 +103,9 @@ products_list_heat = [
   {
     name: "vans old skool",
     src: "images/vans_old_skool.webp",
+    src2: "images/vans_old_skool2.webp",
+    src3: "images/vans_old_skool3.webp",
+    src4: "images/vans_old_skool4.webp",
     id: 15,
     price: 70,
     sizes: [7, 8, 9, 10],
@@ -93,6 +114,10 @@ products_list_heat = [
   {
     name: "puma suede",
     src: "images/puma_suede.webp",
+    src2: "images/puma_suede2.webp",
+    src3: "images/puma_suede3.webp",
+    src4: "images/puma_suede4.webp",
+
     id: 16,
     price: 90,
     sizes: [7, 8, 9, 10],
@@ -105,6 +130,9 @@ products_list_merchandise = [
   {
     name: "hoodie",
     src: "images/hoodie.png",
+    src2: "images/hoodie2.webp",
+    src3: "images/hoodie3.webp",
+    src4: "images/hoodie4.webp",
     id: 5,
     price: 50,
     sizes: ["s", "m", "l", "xl"],
@@ -113,6 +141,9 @@ products_list_merchandise = [
   {
     name: "t-shirt",
     src: "images/t_shirt.webp",
+    src2: "images/t_shirt2.webp",
+    src3: "images/t_shirt3.webp",
+    src4: "images/t_shirt4.webp",
     id: 6,
     price: 25,
     sizes: ["s", "m", "l", "xl"],
@@ -122,6 +153,9 @@ products_list_merchandise = [
   {
     name: "hat",
     src: "images/hat.png",
+    src2: "images/hat2.png",
+    src3: "images/hat3.png",
+    src4: "images/hat4.jpg",
     id: 7,
     price: 20,
     sizes: ["s", "m", "l", "xl"],
@@ -130,6 +164,9 @@ products_list_merchandise = [
   {
     name: "socks",
     src: "images/socks.webp",
+    src2: "images/socks2.webp",
+    src3: "images/socks3.webp",
+    src4: "images/socks4.webp",
     id: 8,
     price: 10,
     sizes: ["s", "m", "l", "xl"],
@@ -138,6 +175,9 @@ products_list_merchandise = [
   {
     name: "shorts",
     src: "images/shorts.webp",
+    src2: "images/shorts2.jpeg",
+    src3: "images/shorts3.png",
+    src4: "images/shorts4.png",
     id: 17,
     price: 30,
     sizes: ["s", "m", "l", "xl"],
@@ -146,6 +186,9 @@ products_list_merchandise = [
   {
     name: "bag",
     src: "images/bag.png",
+    src2: "images/bag2.png",
+    src3: "images/bag3.png",
+    src4: "images/bag4.png",
     id: 18,
     price: 40,
     sizes: ["s", "m", "l", "xl"],
@@ -154,6 +197,9 @@ products_list_merchandise = [
   {
     name: "jacket",
     src: "images/jacket.webp",
+    src2: "images/jacket2.webp",
+    src3: "images/jacket3.webp",
+    src4: "images/jacket4.webp",
     id: 19,
     price: 80,
     sizes: ["s", "m", "l", "xl"],
@@ -165,6 +211,9 @@ products_list_basketball = [
   {
     name: "lebron 20",
     src: "images/lebron_20.webp",
+    src2: "images/lebron_202.jpg",
+    src3: "images/lebron_203.jpg",
+    src4: "images/lebron_204.jpg",
     id: 9,
     price: 200,
     sizes: [7, 8, 9, 10],
@@ -172,7 +221,10 @@ products_list_basketball = [
   },
   {
     name: "kd 16",
-    src: "images/kd_16.jpeg",
+    src: "images/kd_16.png",
+    src2: "images/kd_162.png",
+    src3: "images/kd_163.png",
+    src4: "images/kd_164.png",
     id: 10,
     price: 150,
     sizes: [7, 8, 9, 10],
@@ -181,6 +233,9 @@ products_list_basketball = [
   {
     name: "kobe 6",
     src: "images/kobe_6.jpg",
+    src2: "images/kobe_62.jpg",
+    src3: "images/kobe_63.jpg",
+    src4: "images/kobe_64.jpg",
     id: 11,
     price: 180,
     sizes: [7, 8, 9, 10],
@@ -189,6 +244,9 @@ products_list_basketball = [
   {
     name: "pg 6",
     src: "images/pg_6.png",
+    src2: "images/pg_62.png",
+    src3: "images/pg_63.png",
+    src4: "images/pg_64.png",
     id: 12,
     price: 120,
     sizes: [7, 8, 9, 10],
@@ -197,6 +255,9 @@ products_list_basketball = [
   {
     name: "curry 4",
     src: "images/curry_4.webp",
+    src2: "images/curry_42.webp",
+    src3: "images/curry_43.webp",
+    src4: "images/curry_44.webp",
     id: 20,
     price: 160,
     sizes: [7, 8, 9, 10],
@@ -205,6 +266,9 @@ products_list_basketball = [
   {
     name: "kai 1",
     src: "images/kai_1.png",
+    src2: "images/kai_12.webp",
+    src3: "images/kai_13.webp",
+    src4: "images/kai_14.webp",
     id: 21,
     price: 150,
     sizes: [7, 8, 9, 10],
@@ -276,6 +340,112 @@ const product_loader = (products_array, html_list) => {
             </div>
           </div>`;
     html_list.innerHTML += product_html;
+  }
+
+  card_loader();
+};
+
+const card_loader = () => {
+  let cards = document.querySelectorAll(".card");
+  for (let i = 0; i < cards.length; i++) {
+    let card = cards[i];
+    card.addEventListener("click", (e) => {
+      let product_id = card.id;
+      let product;
+      product = products_list_heat.find((product) => product.id == product_id);
+      if (product === undefined) {
+        product = products_list_merchandise.find(
+          (product) => product.id == product_id
+        );
+      }
+      if (product === undefined) {
+        product = products_list_basketball.find(
+          (product) => product.id == product_id
+        );
+      }
+      let product_overlay = document.querySelector(".product_overlay");
+      product_overlay.innerHTML = `
+      <div>
+        <div class="prod_display">
+          <div class="main_image">
+            <img src="${product.src}" alt="${product.name}" />
+          </div>
+          <div class="thumbnails">
+            <img
+              class="active"
+              src="${product.src}"
+              alt="${product.name}"
+            />
+            <img src="${product.src2}" alt="${product.name}" />
+            <img src="${product.src3}" alt="${product.name}" />
+            <img src="${product.src4}" alt="${product.name}" />
+          </div>
+        </div>
+        <div class="product_details">
+          <p>${product.name}</p>
+          <p>$${product.price}</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae,
+            beatae!
+          </p>
+        </div>
+      </div>
+      <div class="buttons">
+        <div class="add_to_cart_from_prod" id="${product.id}">
+          <p>Add to cart</p>
+        </div>
+        <div class="add_to_wishlist_from_prod" id="${product.id}">
+          <p>Add to wishlist</p>
+        </div>
+      </div>
+      `;
+      overlay_open_funtion(product_overlay);
+
+      let thumbnails = document.querySelectorAll(".thumbnails img");
+      for (let j = 0; j < thumbnails.length; j++) {
+        let thumbnail = thumbnails[j];
+        thumbnail.addEventListener("click", () => {
+          let main_image = document.querySelector(".main_image img");
+          main_image.src = thumbnail.src;
+          for (let k = 0; k < thumbnails.length; k++) {
+            thumbnails[k].classList.remove("active");
+          }
+          thumbnail.classList.add("active");
+        });
+      }
+
+      let add_to_cart_buttons = document.querySelectorAll(
+        ".add_to_cart_from_prod"
+      );
+      for (let j = 0; j < add_to_cart_buttons.length; j++) {
+        let add_to_cart_button = add_to_cart_buttons[j];
+        add_to_cart_button.addEventListener("click", (ev) => {
+          console.log("clicked");
+          ev.stopPropagation();
+          cart_items_array.push(add_to_cart_button.id);
+          localStorage.setItem("cart", JSON.stringify(cart_items_array));
+          reload_cart();
+        });
+      }
+
+      let add_to_wishlist_buttons = document.querySelectorAll(
+        ".add_to_wishlist_from_prod"
+      );
+      for (let j = 0; j < add_to_wishlist_buttons.length; j++) {
+        let add_to_wishlist_button = add_to_wishlist_buttons[j];
+        add_to_wishlist_button.addEventListener("click", (ev) => {
+          console.log("clicked");
+          ev.stopPropagation();
+          wishlist_items_array.push(add_to_wishlist_button.id);
+          localStorage.setItem(
+            "wishlist",
+            JSON.stringify(wishlist_items_array)
+          );
+          set_wishlist_buttons(wishlist_items_array);
+          reload_wishlist();
+        });
+      }
+    });
   }
 };
 
@@ -359,6 +529,7 @@ wishlist_button.addEventListener("click", function (event) {
   event.stopPropagation();
   overlay_close_function(cart_overlay); // close the cart overlay (if open)
   dropdown_close_function(); // close the dropdown menu (if open)
+  overlay_close_function(document.querySelector(".product_overlay"));
   overlay_open_funtion(wishlist_overlay);
 });
 
@@ -501,7 +672,8 @@ set_wishlist_buttons(wishlist_items_array); // set the wishlist buttons
 let add_to_wishlist_buttons = document.querySelectorAll(".add_to_wishlist"); //add to wishlist buttons array
 for (let i = 0; i < add_to_wishlist_buttons.length; i++) {
   let add_to_wishlist_button = add_to_wishlist_buttons[i];
-  add_to_wishlist_button.addEventListener("click", () => {
+  add_to_wishlist_button.addEventListener("click", (e) => {
+    e.stopPropagation();
     // add to wishlist button event listener
     if (add_to_wishlist_button.style.fill === "red") {
       // if the product is in the wishlist remove it
@@ -540,6 +712,7 @@ cart_button.addEventListener("click", function (event) {
   event.stopPropagation();
   dropdown_close_function(); // close the dropdown menu (if open)
   overlay_close_function(wishlist_overlay); // close the wishlist overlay (if open
+  overlay_close_function(document.querySelector(".product_overlay"));
   overlay_open_funtion(cart_overlay);
 });
 
@@ -654,7 +827,8 @@ reload_cart();
 let add_to_cart_buttons = document.querySelectorAll(".add_to_cart");
 for (let i = 0; i < add_to_cart_buttons.length; i++) {
   let add_to_cart_button = add_to_cart_buttons[i];
-  add_to_cart_button.addEventListener("click", () => {
+  add_to_cart_button.addEventListener("click", (e) => {
+    e.stopPropagation();
     cart_items_array.push(add_to_cart_button.id);
     localStorage.setItem("cart", JSON.stringify(cart_items_array));
     reload_cart();
@@ -733,6 +907,10 @@ document.addEventListener("click", function (event) {
   let isClickInsideWishlist = wishlist_overlay.contains(event.target); // check if the click is inside the wishlist overlay
   let isClickInsideCart = cart_overlay.contains(event.target); // check if the click is inside the cart overlay
   let isClickInsideLoginPage = login_overlay.contains(event.target); // check if the click is inside the login overlay
+  let isClickInsideProduct = document
+    .querySelector(".product_overlay")
+    .contains(event.target); // check if the click is inside the product overlay
+
   if (!isClickInsideMenu && menu.style.opacity === "1") {
     // close the dropdown menu if the click is outside it
     dropdown_close_function();
@@ -750,5 +928,12 @@ document.addEventListener("click", function (event) {
 
   if (!isClickInsideLoginPage && login_overlay.style.opacity === "1") {
     overlay_close_function(login_overlay);
+  }
+
+  if (
+    !isClickInsideProduct &&
+    document.querySelector(".product_overlay").style.opacity === "1"
+  ) {
+    overlay_close_function(document.querySelector(".product_overlay"));
   }
 });
