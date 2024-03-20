@@ -400,14 +400,19 @@ const card_loader = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae,
             beatae!
           </p>
-        </div>
-      </div>
+
+          <div class="rating">
+            <p>Review : ${product.review}/5</p>
+          </div>
+          
       <div class="buttons">
-        <div class="add_to_cart_from_prod" id="${product.id}">
-          <p>Add to cart</p>
-        </div>
-        <div class="add_to_wishlist_from_prod" id="${product.id}">
-          <p>Add to wishlist</p>
+      <div class="add_to_cart_from_prod" id="${product.id}">
+        <p>Add to cart</p>
+      </div>
+      <div class="add_to_wishlist_from_prod" id="${product.id}">
+        <p>Add to wishlist</p>
+      </div>
+    </div>
         </div>
       </div>
       `;

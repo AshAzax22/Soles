@@ -157,7 +157,7 @@ body {
   gap: 1em;
   margin: 1em 0em;
 }
-.product_details p:nth-of-type(1) {
+.product_ovelay .product_details p:nth-of-type(1) {
   font-size: 1.5em;
   font-weight: 600;
 }
@@ -171,6 +171,16 @@ body {
   margin: 20px 0px;
   /* position: absolute; */
   top: 0;
+}
+
+.product_overlay .buttons {
+  flex-direction: column;
+  gap: 2em;
+}
+
+.product_overlay .buttons > div {
+  justify-content: center;
+  display: flex;
 }
 
 .overlay .header {
