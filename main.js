@@ -365,6 +365,18 @@ const card_loader = () => {
       }
       let product_overlay = document.querySelector(".product_overlay");
       product_overlay.innerHTML = `
+      <div class="header">
+        <div class="heading">
+          <h1>Product Details</h1>
+        </div>
+        <div class="product_close close_button">
+          <svg xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z"
+            ></path>
+          </svg>
+        </div>
+      </div>
       <div>
         <div class="prod_display">
           <div class="main_image">
@@ -400,6 +412,11 @@ const card_loader = () => {
       </div>
       `;
       overlay_open_funtion(product_overlay);
+
+      let product_close = document.querySelector(".product_close");
+      product_close.addEventListener("click", (e) => {
+        overlay_close_function(product_overlay);
+      });
 
       let thumbnails = document.querySelectorAll(".thumbnails img");
       for (let j = 0; j < thumbnails.length; j++) {
