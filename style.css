@@ -859,7 +859,7 @@ body {
     width: 70%;
     font-size: 14px;
   }
-  .wishlist .prod_img {
+  .overlay .prod_img {
     aspect-ratio: 4/3;
   }
 
@@ -916,16 +916,16 @@ body {
     width: 70%;
     font-size: 12px;
   }
-  .wishlist .prod_img {
+  .overlay .prod_img {
     aspect-ratio: 1;
   }
   .overlay .item {
     padding: 5px 10px;
   }
-  .wishlist .buttons {
+  .overlay .buttons {
     opacity: 1;
   }
-  .wishlist .buttons > div {
+  .overlay .buttons > div {
     padding: 5px 10px;
   }
   .nav {
@@ -987,18 +987,18 @@ body {
     font-size: 10px;
     padding: 5px 15px;
   }
-  .wishlist {
+  .overlay {
     width: 70%;
     font-size: 10px;
   }
-  .wishlist .prod_img {
+  .overlay .prod_img {
     aspect-ratio: 1;
   }
-  .wishlist .wishlist_item {
+  .overlay .wishlist_item {
     padding: 5px 10px;
   }
 
-  .wishlist .buttons > div {
+  .overlay .buttons > div {
     padding: 2px 6px;
   }
   .nav {

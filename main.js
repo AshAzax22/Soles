@@ -351,6 +351,8 @@ const card_loader = () => {
     let card = cards[i];
     card.addEventListener("click", (e) => {
       e.stopPropagation();
+      overlay_close_function(document.querySelector(".wishlist"));
+      overlay_close_function(document.querySelector(".cart"));
       let product_id = card.id;
       let product;
       product = products_list_heat.find((product) => product.id == product_id);
