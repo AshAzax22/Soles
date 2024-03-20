@@ -350,6 +350,7 @@ const card_loader = () => {
   for (let i = 0; i < cards.length; i++) {
     let card = cards[i];
     card.addEventListener("click", (e) => {
+      e.stopPropagation();
       let product_id = card.id;
       let product;
       product = products_list_heat.find((product) => product.id == product_id);
@@ -967,7 +968,8 @@ document.addEventListener("click", function (event) {
 
   if (
     !isClickInsideProduct &&
-    document.querySelector(".product_overlay").style.opacity === "1"
+    document.querySelector(".product_overlay").style.opacity === "1" &&
+    event.target.className !== "card"
   ) {
     overlay_close_function(document.querySelector(".product_overlay"));
   }
