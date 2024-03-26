@@ -341,11 +341,27 @@ body {
   font-weight: 800;
 }
 .login .input_container {
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+
+.login .password_input {
+  display: flex;
+  flex-direction: row;
+}
+
+.login svg {
+  position: absolute;
+  right: -10px;
+  width: 1.5em;
+  height: 1.5em;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: all 0.3s ease-in-out;
 }
 .login input {
   background-color: transparent;
