@@ -907,6 +907,8 @@ login_but.addEventListener("click", (e) => {
   if (login_flag) {
     login_flag = 0;
     login_but.innerHTML = "LogIn";
+    let menu = document.querySelector(".menu_dropdown");
+    menu.innerHTML = `MENU`;
   } else {
     e.stopPropagation();
     overlay_open_funtion(login_overlay);
@@ -926,6 +928,8 @@ login_submit.addEventListener("click", () => {
     login_overlay.style.setProperty("background-color", "rgb(85, 255, 85)");
     login_submit.style.setProperty("opacity", "0");
     login_but.innerHTML = "LogOut";
+    let menu = document.querySelector(".menu_dropdown");
+    menu.innerHTML = `Welcome <p style="color:rgb(85, 255, 85)">${username}</p> <div class="arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></div>`;
     setTimeout(() => {
       document.querySelector("#username").value = "";
       document.querySelector("#password").value = "";
