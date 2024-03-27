@@ -455,7 +455,9 @@ body {
   text-align: center;
   transition: all 0.3s ease-in-out;
 }
-
+.menu .login_button {
+  color: rgb(85, 255, 85);
+}
 .menu_dropdown > p {
   display: inline;
 }
