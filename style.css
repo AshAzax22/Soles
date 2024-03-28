@@ -458,6 +458,9 @@ body {
 .menu .login_button {
   color: rgb(85, 255, 85);
 }
+.menu_dropdown {
+  text-wrap: nowrap;
+}
 .menu_dropdown > p {
   display: inline;
 }
