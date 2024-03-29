@@ -155,7 +155,6 @@ products_list_heat = [
     src4: "images/jordan_14.jpeg",
     id: 1,
     price: 175,
-    sizes: [7, 8, 9, 10],
     review: 3,
   },
   {
@@ -166,7 +165,6 @@ products_list_heat = [
     src4: "images/yeezy_spl_3504.webp",
     id: 2,
     price: 250,
-    sizes: [7, 8, 9, 10],
     review: 4,
   },
   {
@@ -177,7 +175,6 @@ products_list_heat = [
     src4: "images/new_balance_5504.webp",
     id: 3,
     price: 120,
-    sizes: [7, 8, 9, 10],
     review: 5,
   },
   {
@@ -188,7 +185,6 @@ products_list_heat = [
     src4: "images/nike_dunk4.png",
     id: 4,
     price: 90,
-    sizes: [7, 8, 9, 10],
     review: 4,
   },
   {
@@ -199,7 +195,6 @@ products_list_heat = [
     src4: "images/adidas_campus4.png",
     id: 13,
     price: 100,
-    sizes: [7, 8, 9, 10],
     review: 4,
   },
   {
@@ -210,7 +205,6 @@ products_list_heat = [
     src4: "images/converse_chuck_taylor4.webp",
     id: 14,
     price: 80,
-    sizes: [7, 8, 9, 10],
     review: 3,
   },
   {
@@ -221,7 +215,6 @@ products_list_heat = [
     src4: "images/vans_old_skool4.webp",
     id: 15,
     price: 70,
-    sizes: [7, 8, 9, 10],
     review: 5,
   },
   {
@@ -233,7 +226,6 @@ products_list_heat = [
 
     id: 16,
     price: 90,
-    sizes: [7, 8, 9, 10],
     review: 4,
   },
 ];
@@ -248,7 +240,6 @@ products_list_merchandise = [
     src4: "images/hoodie4.webp",
     id: 5,
     price: 50,
-    sizes: ["s", "m", "l", "xl"],
     review: 5,
   },
   {
@@ -259,7 +250,6 @@ products_list_merchandise = [
     src4: "images/t_shirt4.webp",
     id: 6,
     price: 25,
-    sizes: ["s", "m", "l", "xl"],
     review: 4,
   },
 
@@ -271,7 +261,6 @@ products_list_merchandise = [
     src4: "images/hat4.jpg",
     id: 7,
     price: 20,
-    sizes: ["s", "m", "l", "xl"],
     review: 3,
   },
   {
@@ -282,7 +271,6 @@ products_list_merchandise = [
     src4: "images/socks4.webp",
     id: 8,
     price: 10,
-    sizes: ["s", "m", "l", "xl"],
     review: 5,
   },
   {
@@ -293,7 +281,6 @@ products_list_merchandise = [
     src4: "images/shorts4.png",
     id: 17,
     price: 30,
-    sizes: ["s", "m", "l", "xl"],
     review: 4,
   },
   {
@@ -304,7 +291,6 @@ products_list_merchandise = [
     src4: "images/bag4.png",
     id: 18,
     price: 40,
-    sizes: ["s", "m", "l", "xl"],
     review: 4,
   },
   {
@@ -315,7 +301,6 @@ products_list_merchandise = [
     src4: "images/jacket4.webp",
     id: 19,
     price: 80,
-    sizes: ["s", "m", "l", "xl"],
     review: 5,
   },
 ];
@@ -329,7 +314,6 @@ products_list_basketball = [
     src4: "images/lebron_204.jpg",
     id: 9,
     price: 200,
-    sizes: [7, 8, 9, 10],
     review: 5,
   },
   {
@@ -340,7 +324,6 @@ products_list_basketball = [
     src4: "images/kd_164.png",
     id: 10,
     price: 150,
-    sizes: [7, 8, 9, 10],
     review: 4,
   },
   {
@@ -351,8 +334,6 @@ products_list_basketball = [
     src4: "images/kobe_64.jpg",
     id: 11,
     price: 180,
-    sizes: [7, 8, 9, 10],
-    review: 4,
   },
   {
     name: "pg 6",
@@ -362,7 +343,6 @@ products_list_basketball = [
     src4: "images/pg_64.png",
     id: 12,
     price: 120,
-    sizes: [7, 8, 9, 10],
     review: 3,
   },
   {
@@ -373,7 +353,6 @@ products_list_basketball = [
     src4: "images/curry_44.webp",
     id: 20,
     price: 160,
-    sizes: [7, 8, 9, 10],
     review: 5,
   },
   {
@@ -384,7 +363,6 @@ products_list_basketball = [
     src4: "images/kai_14.webp",
     id: 21,
     price: 150,
-    sizes: [7, 8, 9, 10],
     review: 4,
   },
 ];
@@ -462,23 +440,36 @@ const card_loader = () => {
   let cards = document.querySelectorAll(".card");
   for (let i = 0; i < cards.length; i++) {
     let card = cards[i];
+
+    let product_id = card.id;
+    let product;
+    product = products_list_heat.find((product) => product.id == product_id);
+    if (product === undefined) {
+      product = products_list_merchandise.find(
+        (product) => product.id == product_id
+      );
+    }
+    if (product === undefined) {
+      product = products_list_basketball.find(
+        (product) => product.id == product_id
+      );
+    }
+
+    let prod_img = card.querySelector("img");
+    prod_img.addEventListener("mouseenter", () => {
+      prod_img.src = product.src2;
+    });
+    prod_img.addEventListener("mouseleave", () => {
+      prod_img.src = product.src;
+    });
+
     card.addEventListener("click", (e) => {
       e.stopPropagation();
+      overlay_close_function(document.querySelector(".login"));
       overlay_close_function(document.querySelector(".wishlist"));
       overlay_close_function(document.querySelector(".cart"));
-      let product_id = card.id;
-      let product;
-      product = products_list_heat.find((product) => product.id == product_id);
-      if (product === undefined) {
-        product = products_list_merchandise.find(
-          (product) => product.id == product_id
-        );
-      }
-      if (product === undefined) {
-        product = products_list_basketball.find(
-          (product) => product.id == product_id
-        );
-      }
+      dropdown_close_function();
+
       let product_overlay = document.querySelector(".product_overlay");
       product_overlay.innerHTML = `
       <div class="header">
