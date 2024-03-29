@@ -655,7 +655,7 @@ body {
 }
 
 .featured div p {
-  z-index: 1;
+  z-index: 3;
 }
 
 .featured div img {
@@ -672,6 +672,7 @@ body {
 
 .featured div:hover p {
   transform: scale(1.2);
+  opacity: 0;
   transition: all 0.3s ease-in-out;
 }
 .featured div:hover {
