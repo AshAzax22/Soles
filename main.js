@@ -562,8 +562,18 @@ const card_loader = () => {
       for (let j = 0; j < add_to_cart_buttons.length; j++) {
         let add_to_cart_button = add_to_cart_buttons[j];
         add_to_cart_button.addEventListener("click", (ev) => {
-          console.log("clicked");
           ev.stopPropagation();
+          add_to_cart_button.style.setProperty(
+            "background-color",
+            "rgb(85, 255, 85)"
+          );
+          add_to_cart_button.style.setProperty("color", "white");
+          add_to_cart_button.innerText = `Added to cart`;
+          setTimeout(() => {
+            add_to_cart_button.style.removeProperty("background-color");
+            add_to_cart_button.innerText = "Add to cart";
+            add_to_cart_button.style.removeProperty("color");
+          }, 1000);
           cart_items_array.push(add_to_cart_button.id);
           localStorage.setItem("cart", JSON.stringify(cart_items_array));
           reload_cart();
@@ -576,8 +586,15 @@ const card_loader = () => {
       for (let j = 0; j < add_to_wishlist_buttons.length; j++) {
         let add_to_wishlist_button = add_to_wishlist_buttons[j];
         add_to_wishlist_button.addEventListener("click", (ev) => {
-          console.log("clicked");
           ev.stopPropagation();
+          add_to_wishlist_button.style.setProperty("background-color", "red");
+          add_to_wishlist_button.style.setProperty("color", "white");
+          add_to_wishlist_button.innerText = `Added to wishlist`;
+          setTimeout(() => {
+            add_to_wishlist_button.style.removeProperty("background-color");
+            add_to_wishlist_button.innerText = "Add to wishlist";
+            add_to_wishlist_button.style.removeProperty("color");
+          }, 1000);
           wishlist_items_array.push(add_to_wishlist_button.id);
           localStorage.setItem(
             "wishlist",
@@ -720,6 +737,14 @@ let reload_wishlist = () => {
   let items_value = wishlist_items_array.length > 1 ? " items" : " item";
   wishlist_overlay.querySelector(".wishlist_count").innerHTML =
     wishlist_items_array.length + items_value; // set the wishlist count
+
+  for (let i = 0; i < wishlist_items_array.length - 1; i++) {
+    for (let j = i + 1; j < wishlist_items_array.length; j++) {
+      if (wishlist_items_array[i] === wishlist_items_array[j]) {
+        wishlist_items_array.splice(j, 1);
+      }
+    }
+  }
   for (let i = 0; i < wishlist_items_array.length; i++) {
     // loop through the wishlist items array
     let product = products_list_heat.find(
@@ -816,6 +841,11 @@ for (let i = 0; i < add_to_wishlist_buttons.length; i++) {
   let add_to_wishlist_button = add_to_wishlist_buttons[i];
   add_to_wishlist_button.addEventListener("click", (e) => {
     e.stopPropagation();
+    overlay_close_function(document.querySelector(".login"));
+    overlay_close_function(document.querySelector(".cart"));
+    dropdown_close_function();
+    overlay_close_function(document.querySelector(".product_overlay"));
+    overlay_close_function(wishlist_overlay);
     // add to wishlist button event listener
     if (add_to_wishlist_button.style.fill === "red") {
       // if the product is in the wishlist remove it
