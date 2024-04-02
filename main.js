@@ -261,7 +261,7 @@ products_list_merchandise = [
     src4: "images/hat4.jpg",
     id: 7,
     price: 20,
-    review: 3,
+    review: 4,
   },
   {
     name: "socks",
@@ -271,7 +271,7 @@ products_list_merchandise = [
     src4: "images/socks4.webp",
     id: 8,
     price: 10,
-    review: 5,
+    review: 2,
   },
   {
     name: "shorts",
@@ -281,7 +281,7 @@ products_list_merchandise = [
     src4: "images/shorts4.png",
     id: 17,
     price: 30,
-    review: 4,
+    review: 3,
   },
   {
     name: "bag",
@@ -314,7 +314,7 @@ products_list_basketball = [
     src4: "images/lebron_204.jpg",
     id: 9,
     price: 200,
-    review: 5,
+    review: 3,
   },
   {
     name: "kd 16",
@@ -334,6 +334,7 @@ products_list_basketball = [
     src4: "images/kobe_64.jpg",
     id: 11,
     price: 180,
+    review: 5,
   },
   {
     name: "pg 6",
@@ -343,7 +344,7 @@ products_list_basketball = [
     src4: "images/pg_64.png",
     id: 12,
     price: 120,
-    review: 3,
+    review: 4,
   },
   {
     name: "curry 4",
@@ -353,7 +354,7 @@ products_list_basketball = [
     src4: "images/curry_44.webp",
     id: 20,
     price: 160,
-    review: 5,
+    review: 3,
   },
   {
     name: "kai 1",
@@ -690,6 +691,7 @@ wishlist_button.addEventListener("click", function (event) {
   dropdown_close_function(); // close the dropdown menu (if open)
   overlay_close_function(document.querySelector(".product_overlay"));
   overlay_open_funtion(wishlist_overlay);
+  overlay_close_function(document.querySelector(".login"));
 });
 
 wishlist_close.addEventListener("click", function (event) {
@@ -886,6 +888,7 @@ cart_button.addEventListener("click", function (event) {
   overlay_close_function(wishlist_overlay); // close the wishlist overlay (if open
   overlay_close_function(document.querySelector(".product_overlay"));
   overlay_open_funtion(cart_overlay);
+  overlay_close_function(document.querySelector(".login"));
 });
 
 cart_close.addEventListener("click", function (event) {
