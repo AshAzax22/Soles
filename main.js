@@ -1,11 +1,3 @@
-let preloader = document.querySelector(".preloader");
-window.onload = function () {
-  preloader.style.setProperty("opacity", "0");
-  setTimeout(() => {
-    preloader.style.setProperty("display", "none");
-  }, 3000);
-};
-
 AOS.init();
 let modeSwitch = document.querySelector(".mode_switch");
 let toggle = modeSwitch.querySelector(".toggle");
