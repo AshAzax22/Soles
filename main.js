@@ -1,3 +1,11 @@
+let preloader = document.querySelector(".preloader");
+window.onload = function () {
+  preloader.style.setProperty("opacity", "0");
+  setTimeout(() => {
+    preloader.style.setProperty("display", "none");
+  }, 3000);
+};
+
 AOS.init();
 let modeSwitch = document.querySelector(".mode_switch");
 let toggle = modeSwitch.querySelector(".toggle");
@@ -638,7 +646,6 @@ window.addEventListener("scroll", () => {
   let nav_backdrop = document.querySelector(".nav_backdrop");
   let nav = document.querySelector(".nav");
   let height = document.querySelector(".intro").offsetHeight;
-
   if (window.scrollY > height) {
     nav_backdrop.style.setProperty("opacity", "1");
     nav.style.removeProperty("color");
