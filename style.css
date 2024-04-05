@@ -443,7 +443,7 @@ body {
   font-weight: 600;
 }
 .nav {
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 100;
   display: flex;
@@ -451,11 +451,23 @@ body {
   align-items: center;
   width: 100%;
   height: 40px;
-  background-color: rgba(var(--accent1));
+  /* backdrop-filter: blur(10px); */
   font-size: 16px;
-  box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.224);
+  /* box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.224); */
   gap: 30vw;
 }
+
+.nav_backdrop {
+  background-color: rgba(var(--accent1));
+  width: 100%;
+  height: 40px;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
 .nav > div {
   flex: 1;
   margin: 0px;
@@ -511,7 +523,7 @@ body {
 }
 .nav .icons svg {
   cursor: pointer;
-  fill: rgba(var(--fontcolor1));
+  /* fill: rgba(var(--fontcolor1)); */
   width: 20px;
 }
 .nav > div:nth-of-type(2):hover {
@@ -597,26 +609,52 @@ body {
   }
 }
 
-.hero img {
-  position: absolute;
-  top: 0;
-  left: 0;
+.intro {
   width: 100%;
-  height: 100%;
-  transition: all 0.3s ease-in-out;
-  /* z-index: -1; */
-  object-fit: cover;
+  aspect-ratio: 16/7.7;
+  background-color: rgba(var(--accent1));
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: last baseline;
+  position: relative;
+  background-color: black;
 }
 
-.hero svg {
-  fill: rgba(var(--fontcolor1));
-}
-.hero .lower {
+.intro video {
   width: 100%;
-  height: 20%;
-  background-color: rgb(var(--accent1));
-  border-radius: 0px 0px 5px 5px;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  opacity: 0.8;
 }
+
+.intro .intro_text {
+  text-align: center;
+  font-size: 1.5em;
+  color: white;
+}
+.intro .intro_text h1 {
+  color: rgb(236, 24, 236);
+  font-weight: 900;
+}
+.intro .intro_text a {
+  text-decoration: none;
+  color: white;
+}
+.intro .arrow {
+  width: 1em;
+  height: 1em;
+  animation: scaling 2s infinite ease-in-out;
+  cursor: pointer;
+}
+
+@keyframes scaling {
+  50% {
+    transform: scale(2);
+  }
+}
+
 .featured {
   margin: 20px 0px;
   display: grid;
@@ -908,6 +946,9 @@ body {
 }
 
 @media (max-width: 768px) {
+  .intro {
+    font-size: 12px;
+  }
   .overlay {
     width: 70%;
     font-size: 14px;
@@ -1036,6 +1077,9 @@ body {
   }
 }
 @media (max-width: 400px) {
+  .intro {
+    font-size: 10px;
+  }
   .order_successful {
     font-size: 10px;
     padding: 5px 15px;

@@ -635,6 +635,16 @@ logo.addEventListener("click", (e) => {
 
 window.addEventListener("scroll", () => {
   // event listener for the scroll event to show the back to top button
+  let nav_backdrop = document.querySelector(".nav_backdrop");
+  let nav = document.querySelector(".nav");
+  let height = window.innerHeight;
+  if (window.scrollY > height) {
+    nav_backdrop.style.setProperty("opacity", "1");
+    nav.style.removeProperty("color");
+  } else {
+    nav_backdrop.style.setProperty("opacity", "0");
+    nav.style.setProperty("color", "white");
+  }
   if (window.scrollY > 150) {
     back_to_top.style.setProperty("opacity", "0.8");
   } else {
