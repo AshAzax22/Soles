@@ -626,7 +626,6 @@ body {
   height: 100%;
   position: absolute;
   object-fit: cover;
-  /* opacity: 1; */
 }
 
 .intro .intro_text {
@@ -637,16 +636,22 @@ body {
 .intro .intro_text h1 {
   color: rgb(236, 24, 236);
   font-weight: 900;
+  letter-spacing: -2px;
 }
 .intro .intro_text a {
   text-decoration: none;
   color: white;
+  cursor: pointer;
+}
+.intro .intro_text a p:nth-of-type(1) {
+  color: rgb(0, 60, 255);
+
+  letter-spacing: -2px;
 }
 .intro .arrow {
   width: 1em;
   height: 1em;
   animation: scaling 2s infinite ease-in-out;
-  cursor: pointer;
 }
 
 @keyframes scaling {
