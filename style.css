@@ -455,6 +455,7 @@ body {
   font-size: 16px;
   /* box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.224); */
   gap: 30vw;
+  /* color: rgba(var(--fontcolor1)); */
 }
 
 .nav_backdrop {
@@ -612,7 +613,6 @@ body {
 .intro {
   width: 100%;
   aspect-ratio: 16/7.7;
-  background-color: rgba(var(--accent1));
   overflow: hidden;
   display: flex;
   justify-content: center;

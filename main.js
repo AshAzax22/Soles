@@ -31,6 +31,12 @@ const mode_change = function () {
   root.style.setProperty("--overlaycolor2", overlaycolor1);
   localStorage.setItem("mode", JSON.stringify(mode));
   featured_loader(); // function to change the images in the featured section
+  let intro = document.querySelector(".intro video");
+  if (mode) {
+    intro.src = "/images/RTFKT x Nike Dunk Void (Trailer).mp4";
+  } else {
+    intro.src = `/images/nikeDunkGenesis3Dprint.mp4`;
+  }
 
   particleColor = mode === 0 ? "#000000" : "#ffffff";
 
