@@ -618,7 +618,7 @@ body {
   justify-content: center;
   align-items: last baseline;
   position: relative;
-  background-color: black;
+  /* background-color: black; */
 }
 
 .intro video {
@@ -626,7 +626,7 @@ body {
   height: 100%;
   position: absolute;
   object-fit: cover;
-  opacity: 0.8;
+  /* opacity: 1; */
 }
 
 .intro .intro_text {
