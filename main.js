@@ -637,7 +637,8 @@ window.addEventListener("scroll", () => {
   // event listener for the scroll event to show the back to top button
   let nav_backdrop = document.querySelector(".nav_backdrop");
   let nav = document.querySelector(".nav");
-  let height = window.innerHeight;
+  let height = document.querySelector(".intro").offsetHeight;
+
   if (window.scrollY > height) {
     nav_backdrop.style.setProperty("opacity", "1");
     nav.style.removeProperty("color");
