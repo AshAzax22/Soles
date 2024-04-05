@@ -1,3 +1,4 @@
+AOS.init();
 let modeSwitch = document.querySelector(".mode_switch");
 let toggle = modeSwitch.querySelector(".toggle");
 let mode = 1; // 1 for light mode and 0 for dark mode
@@ -398,7 +399,7 @@ const product_loader = (products_array, html_list) => {
   for (let i = 0; i < products_array.length; i++) {
     let product = products_array[i];
     let product_html = `
-      <div class="card" id="${product.id}">
+      <div class="card" data-aos="fade-up" id="${product.id}">
             <div class="prod_img">
               <img src="${product.src}" alt="${product.name}" />
             </div>
