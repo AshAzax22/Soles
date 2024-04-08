@@ -1263,6 +1263,7 @@ particlesJS("particles-js", {
 
 window.onload = () => {
   let preloader = document.querySelector(".preloader");
+  preloader.style.setProperty("transform", "translateY(-100%)");
   preloader.style.setProperty("opacity", "0");
   setTimeout(() => {
     preloader.style.setProperty("display", "none");
