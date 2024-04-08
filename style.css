@@ -634,8 +634,7 @@ body {
   color: white;
 }
 .intro .intro_text h1 {
-  /* color: rgb(236, 24, 236); */
-  color: red;
+  color: rgb(236, 24, 236);
   font-weight: 900;
   letter-spacing: -2px;
 }
