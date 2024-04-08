@@ -1162,6 +1162,14 @@ body {
   .login .login_submit {
     font-size: 0.8em;
   }
+
+  .product_overlay > div:nth-of-type(2) {
+    flex-direction: column;
+  }
+  .product_overlay .prod_display {
+    width: 100%;
+    height: 70%;
+  }
 }
 @media (max-width: 400px) {
   .intro {
