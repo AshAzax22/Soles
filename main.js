@@ -1,11 +1,3 @@
-window.onload = () => {
-  let preloader = document.querySelector(".preloader");
-  preloader.style.setProperty("opacity", "0");
-  setTimeout(() => {
-    preloader.style.setProperty("display", "none");
-  }, 300);
-};
-
 AOS.init();
 let modeSwitch = document.querySelector(".mode_switch");
 let toggle = modeSwitch.querySelector(".toggle");
@@ -1268,3 +1260,11 @@ particlesJS("particles-js", {
   },
   retina_detect: true,
 });
+
+window.onload = () => {
+  let preloader = document.querySelector(".preloader");
+  preloader.style.setProperty("opacity", "0");
+  setTimeout(() => {
+    preloader.style.setProperty("display", "none");
+  }, 300);
+};
