@@ -700,7 +700,7 @@ body {
   justify-content: center;
   align-items: last baseline;
   position: relative;
-  /* background-color: black; */
+  background-color: rgba(var(--color1));
 }
 
 .intro video {
